@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 // Custom hook for mobile detection
 const useIsMobile = () => {
@@ -162,12 +163,16 @@ export const HeroSection = () => {
                         transition={{ duration: 0.5 }}
                         className="w-full h-full"
                       >
-                        <img
-                          src={images[currentImage]}
-                          alt="Staff Management"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={images[currentImage]}
+                            alt="Staff Management"
+                            fill
+                            className="object-cover"
+                            priority
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </motion.div>
                     </AnimatePresence>
                   </div>
