@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { CreditCard, TrendingUp, Shield, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 export const MarketingAndPayments = () => {
   const features = [
@@ -71,10 +72,42 @@ export const MarketingAndPayments = () => {
         >
           <h3 className="text-2xl font-semibold mb-8 text-gray-900">Supported Payment Methods</h3>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            <img src="/visa.png" alt="Visa" className="h-8 grayscale hover:grayscale-0 transition-all" />
-            <img src="/mastercard.png" alt="Mastercard" className="h-8 grayscale hover:grayscale-0 transition-all" />
-            <img src="/paypal.png" alt="PayPal" className="h-8 grayscale hover:grayscale-0 transition-all" />
-            <img src="/stripe.png" alt="Stripe" className="h-8 grayscale hover:grayscale-0 transition-all" />
+            <div className="relative h-8 w-auto aspect-[3/1]">
+              <Image
+                src="/visa.png"
+                alt="Visa"
+                width={60}
+                height={32}
+                className="grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
+            <div className="relative h-8 w-auto aspect-[3/1]">
+              <Image
+                src="/mastercard.png"
+                alt="Mastercard"
+                width={60}
+                height={32}
+                className="grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
+            <div className="relative h-8 w-auto aspect-[3/1]">
+              <Image
+                src="/paypal.png"
+                alt="PayPal"
+                width={60}
+                height={32}
+                className="grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
+            <div className="relative h-8 w-auto aspect-[3/1]">
+              <Image
+                src="/stripe.png"
+                alt="Stripe"
+                width={60}
+                height={32}
+                className="grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
           </div>
         </motion.div>
 

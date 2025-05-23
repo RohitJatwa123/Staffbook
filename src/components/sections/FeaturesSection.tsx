@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, MessageCircle, TrendingUp, UserCircle, Users } from 'lucide-react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -189,12 +190,16 @@ export const FeaturesSection = () => {
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className="w-full h-full"
                       >
-                        <img
-                          src={features[activeTab].image}
-                          alt={features[activeTab].title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={features[activeTab].image}
+                            alt={features[activeTab].title}
+                            fill
+                            className="object-cover"
+                            priority
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </motion.div>
                     </AnimatePresence>
                   </div>
