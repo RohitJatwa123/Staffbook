@@ -1,5 +1,8 @@
+'use client';
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from 'next/image';
 
 // Custom hook for mobile detection
 const useIsMobile = () => {
@@ -93,16 +96,22 @@ export const Payment = () => {
                 <div className={`w-full h-full ${featureSecondaryDimensions.innerRoundedClass} overflow-hidden relative bg-[#1a1a1a]`}>
                   <div className={`absolute inset-0 border-[0.2px] border-[#334155] ${featureSecondaryDimensions.innerRoundedClass}`}></div>
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={currentFeatureImage + "-prev"}
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.8, opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      src={featureImages[(currentFeatureImage - 1 + featureImages.length) % featureImages.length]}
-                      alt="Previous Image"
-                      className="w-full h-full object-cover"
-                    />
+                      className="relative w-full h-full"
+                    >
+                      <Image
+                        src={featureImages[(currentFeatureImage - 1 + featureImages.length) % featureImages.length]}
+                        alt="Previous Image"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </motion.div>
                   </AnimatePresence>
                 </div>
               </div>
@@ -136,15 +145,21 @@ export const Payment = () => {
                   ></div>
                   <div className={`w-full h-full ${featureMainDimensions.innerRoundedClass} overflow-hidden relative bg-[#1a1a1a]`}>
                     <div className={`absolute inset-0 border-[0.2px] border-[#334155] ${featureMainDimensions.innerRoundedClass}`}></div>
-                    <motion.img
+                    <motion.div
                       key={currentFeatureImage + "-main-img"}
                       initial={{ scale: 0.9 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5 }}
-                      src={featureImages[currentFeatureImage]}
-                      alt="Current Image"
-                      className="w-full h-full object-cover"
-                    />
+                      className="relative w-full h-full"
+                    >
+                      <Image
+                        src={featureImages[currentFeatureImage]}
+                        alt="Current Image"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </motion.div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -185,16 +200,22 @@ export const Payment = () => {
                 <div className={`w-full h-full ${featureSecondaryDimensions.innerRoundedClass} overflow-hidden relative bg-[#1a1a1a]`}>
                   <div className={`absolute inset-0 border-[0.2px] border-[#334155] ${featureSecondaryDimensions.innerRoundedClass}`}></div>
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={currentFeatureImage + "-next"}
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.8, opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      src={featureImages[(currentFeatureImage + 1) % featureImages.length]}
-                      alt="Next Image"
-                      className="w-full h-full object-cover"
-                    />
+                      className="relative w-full h-full"
+                    >
+                      <Image
+                        src={featureImages[(currentFeatureImage + 1) % featureImages.length]}
+                        alt="Next Image"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </motion.div>
                   </AnimatePresence>
                 </div>
               </div>
@@ -208,11 +229,11 @@ export const Payment = () => {
             Supported Payment Methods
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4">
-            <img src="/images/phone.jpeg" alt="PhonePe" className="h-8 md:h-10" />
-            <img src="/images/goog.png" alt="Google Pay" className="h-8 md:h-10" />
-            <img src="/images/paytm.jpeg" alt="Paytm" className="h-8 md:h-10" />
-            <img src="/images/visa.jpeg" alt="Visa" className="h-8 md:h-10" />
-            <img src="/images/mastercard.jpeg" alt="Mastercard" className="h-8 md:h-10" />
+            <Image src="/images/phone.jpeg" alt="PhonePe" width={40} height={40} className="h-8 md:h-10 w-auto" />
+            <Image src="/images/goog.png" alt="Google Pay" width={40} height={40} className="h-8 md:h-10 w-auto" />
+            <Image src="/images/paytm.jpeg" alt="Paytm" width={40} height={40} className="h-8 md:h-10 w-auto" />
+            <Image src="/images/visa.jpeg" alt="Visa" width={40} height={40} className="h-8 md:h-10 w-auto" />
+            <Image src="/images/mastercard.jpeg" alt="Mastercard" width={40} height={40} className="h-8 md:h-10 w-auto" />
           </div>
         </div>
       </motion.section>
